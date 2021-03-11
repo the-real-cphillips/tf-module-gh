@@ -1,4 +1,4 @@
-resource "github_repository_file" {
+resource "github_repository_file" "terraform-fmt" {
   repository = github_repository.this.name
   branch = github_branch_default.this.name
   file = ".github/workflows/terraform.yml"
