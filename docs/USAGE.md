@@ -28,6 +28,7 @@
 | create\_default\_branch | Set to `true` if your default branch needs to be created, if already created, leave this `false` | `bool` | `false` | no |
 | default\_branch\_name | Name of Default Branch | `string` | `"main"` | no |
 | delete\_branch\_on\_merge | Whether to Delete Branches after Merge | `bool` | `true` | no |
+| overwrite\_on\_create | whether to overwrite the file being added or not | `bool` | `false` | no |
 | source\_branch | If you need to create a new default branch for an existing repo, then you need to define what branch you're sourcing for the new branch. If this is for a brand new repository, `main` will be used | `string` | `"main"` | no |
 | visibility | Visibility of the Repo (private, internal, public) | `string` | `"private"` | no |
 
