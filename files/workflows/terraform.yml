@@ -1,0 +1,57 @@
+---
+name: 'Terraform FMT'
+
+on: [pull_request]
+
+jobs:
+  terraform:
+    name: 'Terraform FMT'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Terraform
+        id: setup
+        uses: hashicorp/setup-terraform@v1
+
+      - name: Terraform Format
+        id: fmt
+        run: terraform fmt -check -recursive
+        continue-on-error: true
+
+      - uses: actions/github-script@v3
+        if: github.event_name == 'pull_request' && steps.fmt.outputs.exitcode != 0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const CODE = '```';
+            const STATUS = ":x: **Failure**, Please Run `terraform fmt -recursive`";
+
+            const output = `
+            ### Terraform FMT
+            ${STATUS}
+            <details>
+            <summary>Output</summary>
+
+            ${CODE}
+            ${{ steps.fmt.outputs.stdout }}
+            ${CODE}
+
+            </details>`;
+
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: output
+            })
+      - name: End Result
+        shell: bash
+        run: |
+          echo "fmt"
+          test ${{ steps.fmt.outputs.exitcode }} -eq 0

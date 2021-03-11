@@ -22,11 +22,18 @@ variable "repo_name" {
   description = "Name of the repository"
 }
 
+variable "source_branch" {
+  type        = string
+  description = "If you need to create a new default branch for an existing repo, then you need to define what branch you're sourcing for the new branch. If this is for a brand new repository, `main` will be used"
+  default     = "main"
+}
+
 variable "visibility" {
   type        = string
   description = "Visibility of the Repo (private, internal, public)"
   default     = "private"
 }
+
 
 // Repo - Booleans
 variable "auto_init" {
@@ -59,8 +66,8 @@ variable "create_default_branch" {
   default     = false
 }
 
-variable "source_branch" {
-  type        = string
-  description = "If you need to create a new default branch for an existing repo, then you need to define what branch you're sourcing for the new branch. If this is for a brand new repository, `main` will be used"
-  default     = "main"
+variable "overwrite_on_create" {
+  type        = bool
+  description = "whether to overwrite the file being added or not"
+  default     = false
 }
