@@ -53,3 +53,8 @@ variable "delete_branch_on_merge" {
   default     = true
 }
 
+variable "create_default_branch" {
+  type        = bool
+  description = "Set to `true` if your default branch needs to be created, if already created, leave this `false`"
+  default     = false
+}
