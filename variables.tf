@@ -4,6 +4,7 @@ variable "token" {
   description = "GitHub PAT"
   sensitive   = true
 }
+
 variable "owner" {
   type        = string
   description = "repo owner"

@@ -11,5 +11,5 @@ resource "github_repository" "this" {
 
 resource "github_branch_default" "this" {
   repository = github_repository.this.name
-  branch     = "main"
+  branch     = var.default_branch_name
 }
