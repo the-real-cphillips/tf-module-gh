@@ -1,4 +1,6 @@
-![](https://www.terraform.io/assets/images/logo-text-8c3ba8a6.svg)
+[![Generated Usage Docs](https://github.com/the-real-cphillips/tf-module-gh/actions/workflows/documentation.yml/badge.svg)](https://github.com/the-real-cphillips/tf-module-gh/actions/workflows/documentation.yml) [![Terraform FMT](https://github.com/the-real-cphillips/tf-module-gh/actions/workflows/terraform.yml/badge.svg)](https://github.com/the-real-cphillips/tf-module-gh/actions/workflows/terraform.yml)
+
+# Terraform Github Module
 
 ---
 
