@@ -3,6 +3,20 @@
 ### Usage:
 #### This USAGE.md header is generated from the comments in `docs.tf`
 
+#### New Repository Example:
+
+```hcl
+module "repo" {
+  source                = "git@github.com:the-real-cphillips/tf-module-gh"
+  token                 = <access_token>
+  owner                 = <repo_owner>
+
+  repo_name             = <name_of_repo>
+  visibility            = <public|private|internal>
+  create_default_branch = true
+}
+```
+
 ## Requirements
 
 | Name | Version |
@@ -19,7 +33,7 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| owner | repo owner | `string` | n/a | yes |
+| owner | Repository Owner | `string` | n/a | yes |
 | repo\_name | Name of the repository | `string` | n/a | yes |
 | token | GitHub PAT | `string` | n/a | yes |
 | allow\_merge\_commit | Allow or Disallow Merge Commits | `bool` | `false` | no |
