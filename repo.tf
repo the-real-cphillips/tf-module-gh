@@ -9,7 +9,14 @@ resource "github_repository" "this" {
   auto_init = true
 }
 
+resource "github_branch" "default" {
+  count         = var.create_default_branch ? 1 : 0
+  repository    = github_repository.this.name
+  source_branch = var.source_branch
+  branch        = var.default_branch_name
+}
+
 resource "github_branch_default" "this" {
   repository = github_repository.this.name
-  branch     = "main"
+  branch     = var.default_branch_name
 }
