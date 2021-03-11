@@ -7,7 +7,7 @@ variable "token" {
 
 variable "owner" {
   type        = string
-  description = "repo owner"
+  description = "Repository Owner"
 }
 
 // Repo

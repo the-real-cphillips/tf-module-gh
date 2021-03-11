@@ -4,4 +4,6 @@
 
 ---
 
+Likely not such a useful module, but I needed it for testing... so there :wink:
+
 - See [USAGE.md](docs/USAGE.md) for how to use this module
